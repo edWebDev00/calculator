@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    height: 500px;
+    width:300px;
+    background-color: black;
+}
+.display {
+    height: 33%;
+    width: 100%;
+    background-color: gray;
+
+}
+.input {
+    height:100%;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(5, 20%);
+}
+button {
+    height:auto;
+    width:auto;
+}
