@@ -36,5 +36,26 @@ operate = function (math, a,b) {
 
     }
 }
+//Add event listener to number buttons and store value and populate display with value
+let displayValue;
+let userInput;
+let display = document.querySelector(".display")
+let button = document.querySelectorAll("button");
+button.forEach((button) => {
+    button.addEventListener('click',() =>{
+        let displayValue = button.textContent;
+        display.textContent = button.textContent;
+        return displayValue;
+    });
+});
+//Add event listener for operations
+let operationValue;
+let operation = document.querySelectorAll(".operate");
+operation.forEach((item) => {
+    item.addEventListener('click',() =>{
+        let operationValue = item.textContent;
+        display.textContent = "";
+        return operationValue;
+    });
+});
 
-console.log(operate("sub",6,2));
