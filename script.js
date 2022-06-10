@@ -1,3 +1,7 @@
+//variables 
+let displayValue = 0;
+
+
 //Create functions for basic match 
 //addition
 add = function (a, b) {
@@ -16,46 +20,81 @@ multi = function(a,b) {
     return a * b;
 }
 // function operate takes two numbers and performs a math function on them
-operate = function (math, a,b) {
+operate = function (math, a, b) {
     switch (math) {
-        case  "multi":
+        case  "*":
         return multi(a,b);
         break;
     
-        case "div" :
+        case "/" :
         return div(a,b);
         break;
 
-        case "add" :
+        case "+" :
         return add(a,b);
         break;
 
-        case "sub" :
+        case "-" :
         return sub(a,b);
         break;
 
     }
 }
-//Add event listener to number buttons and store value and populate display with value
-let displayValue;
-let userInput;
-let display = document.querySelector(".display")
-let button = document.querySelectorAll("button");
-button.forEach((button) => {
-    button.addEventListener('click',() =>{
-        let displayValue = button.textContent;
-        display.textContent = button.textContent;
-        return displayValue;
-    });
-});
-//Add event listener for operations
-let operationValue;
-let operation = document.querySelectorAll(".operate");
-operation.forEach((item) => {
-    item.addEventListener('click',() =>{
-        let operationValue = item.textContent;
-        display.textContent = "";
-        return operationValue;
-    });
-});
+// Function that adds event listener to buttons and stores their value
+const button = document.querySelectorAll('button');
 
+
+function click () {
+    for (let i = 0; i < button.length; i++) {
+        
+        button[i].addEventListener('click',()=> {
+            if (button[i].classList.contains('number')){
+                numberInput(button[i].textContent);
+                
+            }
+            else {
+            if (button[i].classList.contains('operate')){
+                operatorInput(button[i].textContent);
+                
+            }
+            }
+        
+        });
+    }
+}
+click();
+
+// functions for storing the values of numbers and operators
+function numberInput(value) {
+    console.log(value);
+    updateDisplay(value);
+}
+
+function operatorInput(value) {
+    
+    console.log(value);
+    updateDisplay(value);
+}
+
+function updateDisplay (num){
+    const display = document.getElementById('display');
+    display.textContent = num;
+}
+
+//Add event listener for operations including if statement to test if button has been pushed
+
+/*operation.forEach((item) => {
+    item.addEventListener('click',(e) =>{
+       
+
+    }); 
+});*/
+
+//creat an object to contain all the inputs
+
+
+
+//Add event listener for equals 
+
+
+//Add event Listener for clear 
