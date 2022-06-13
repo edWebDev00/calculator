@@ -1,100 +1,69 @@
-//variables 
+//Create a calculator 
+// CReate variables
+let numberInput = [];
+let operatorInput = [];
 let displayValue = 0;
+//Add event listener to capture input from the calculator
 
 
-//Create functions for basic match 
-//addition
-add = function (a, b) {
-    return a + b;
-}
-//subtraction
-sub = function (a,b) {
-    return a - b;
-}
-//division 
-div = function(a,b) {
-    return a / b;
-}
-// multiply
-multi = function(a,b) {
-    return a * b;
-}
-// function operate takes two numbers and performs a math function on them
-operate = function (math, a, b) {
-    switch (math) {
-        case  "*":
-        return multi(a,b);
-        break;
+function click(){
+    const button = document.querySelectorAll('button')
+    button.forEach(element => element.addEventListener('click', () => {
+        if (element.className ==="number"){
+        numberInput.push(element.textContent);
+        updateDisplay(numberInput.join(""));
+        }
+        else if (element.className === "operate"){
+        operatorInput.push(element.textContent);
+        updateDisplay(operatorInput.join(""));
+            if (obj.operator1 === undefined) {
+            obj.number1 = numberInput;
+            obj.operator1 = operatorInput;
+            numberInput = [];
+            }
+            else if (obj.operator1 != undefined) {
+            obj.number2 = numberInput;
+            
+            }
+        }
+        else if (element.className === "equals"){
+        ongotpointercapture
+        }
+        else if (element.className === "clear"){
+        numberInput = [];
+        operatorInput = [];
+        updateDisplay("0");
+        }
+        else if (element.className === "sign"){
+        console.log(element);
+        }   
+        else if (element.className === "decimal"){
+        numberInput.push(element.textContent);
+        updateDisplay(numberInput.join(""));
+        }
+        console.log(obj.number1);
+        console.log(obj.operator1);
+        console.log(obj.number2);
+    }));
     
-        case "/" :
-        return div(a,b);
-        break;
-
-        case "+" :
-        return add(a,b);
-        break;
-
-        case "-" :
-        return sub(a,b);
-        break;
-
-    }
 }
-// Function that adds event listener to buttons and stores their value
-const button = document.querySelectorAll('button');
 
-
-function click () {
-    for (let i = 0; i < button.length; i++) {
-        
-        button[i].addEventListener('click',()=> {
-            if (button[i].classList.contains('number')){
-                numberInput(button[i].textContent);
-                
-            }
-            else {
-            if (button[i].classList.contains('operate')){
-                operatorInput(button[i].textContent);
-                
-            }
-            }
-        
-        });
-    }
+//function to update display 
+let display = document.querySelector("#display")
+display.textContent = displayValue;
+function updateDisplay (value) {
+     display.textContent = value;
 }
+
+// Function calls
 click();
 
-// functions for storing the values of numbers and operators
-function numberInput(value) {
-    console.log(value);
-    updateDisplay(value);
+//Create on object to hold values of number inputs ans operators 
+
+obj = {
+    number1 : undefined,
+    number2 : undefined,
+    numner3 :undefined,
+    operator1 : undefined,
+    operator2 : undefined,
 }
-
-function operatorInput(value) {
-    
-    console.log(value);
-    updateDisplay(value);
-}
-
-function updateDisplay (num){
-    const display = document.getElementById('display');
-    display.textContent = num;
-}
-
-//Add event listener for operations including if statement to test if button has been pushed
-
-/*operation.forEach((item) => {
-    item.addEventListener('click',(e) =>{
-       
-
-    }); 
-});*/
-
-//creat an object to contain all the inputs
-
-
-
-//Add event listener for equals 
-
-
-//Add event Listener for clear 
