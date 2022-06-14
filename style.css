@@ -1,16 +1,24 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
 .container {
     display: flex;
     flex-direction: column;
     margin:auto;
-    height: 500px;
-    width:300px;
+    height: 30em;
+    width: 20em;
     background-color: black;
 }
 #display {
     height: 20%;
     width: 100%;
-    background-color: gray;
-
+    background-color:black;
+    color: white;
+    padding: 5px;
+    font-size: 2em;
 }
 .input {
     height:100%;
@@ -18,8 +26,46 @@
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(5, 20%);
+    gap: 5px;
 }
 button {
     height:auto;
     width:auto;
+    font-size: 2em;
+    position: relative;
+    background: white;
+}
+button:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top left, #711c91 0%, #0abdc6 100% );
+    transform: translate3d(0px, 20px, 0) scale(0.95);
+    filter: blur(20px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+  }
+  
+
+ button::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+  }
+button:hover {
+
+}
+
+ #zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
